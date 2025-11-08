@@ -6,8 +6,12 @@ using namespace std;
 
 // community function to clear screen console
 // https://medium.com/@ryan_forrester_/c-screen-clearing-how-to-guide-cff5bf764ccd
-void clearScreenANSI() {
-    cout << "\033[2J\033[1;1H";
+void clearScreen() {
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
 }
 
 void o1()
@@ -27,7 +31,7 @@ Menu::~Menu() {}
 void Menu::run() {
     while (true)
     {
-        clearScreenANSI();
+        clearScreen();
         cout << "\n==========================\n";
         for (size_t i = 0; i < this->list.size(); i++)
         {
