@@ -22,8 +22,13 @@ void o1()
 Menu::Menu() {
     cout << "Drzewo BST\n";
     // klasa bst
-    this->list.push_back( {"dodawanie", o1} );
-    this->list.push_back( {"odejmowanie", o1} );
+    this->list.push_back( {"dodaj element", o1} );
+    this->list.push_back( {"usun element", o1} );
+    this->list.push_back( {"usun drzewo", o1} );
+    this->list.push_back( {"szukaj drogi", o1} );
+    this->list.push_back( {"wyswietl drzewo", o1} );
+    this->list.push_back( {"zapisz drzewo", o1} );
+    this->list.push_back( {"wyjdz z programu", o1} );
 }
 
 Menu::~Menu() {}
