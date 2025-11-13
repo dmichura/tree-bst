@@ -14,6 +14,8 @@ struct Node {
 class BST {
 private:
     Node* root;
+
+    void clearRecursive(Node* node);
 public:
     BST();
     ~BST();
