@@ -19,6 +19,8 @@ private:
 public:
     BST();
     ~BST();
+
+    void clear();
 };
 
 #endif
