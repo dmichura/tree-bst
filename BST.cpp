@@ -9,4 +9,13 @@ BST::BST() : root(nullptr) {}
 BST::~BST() {
 }
 
+void BST::clearRecursive(Node* node) {
+    if (node == nullptr) {
+        return;
+    }
+    clearRecursive(node->left);
+    clearRecursive(node->right);
+    delete node;
+}
+
 #endif
