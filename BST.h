@@ -11,4 +11,12 @@ struct Node {
     Node(int value) : data(value), left(nullptr), right(nullptr) {}
 };
 
+class BST {
+private:
+    Node* root;
+public:
+    BST();
+    ~BST();
+}
+
 #endif
