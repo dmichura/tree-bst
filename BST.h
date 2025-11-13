@@ -17,6 +17,6 @@ private:
 public:
     BST();
     ~BST();
-}
+};
 
 #endif
