@@ -19,6 +19,7 @@ void BST::clearRecursive(Node* node) {
 }
 
 void BST::clear() {
+    clearRecursive(root);
     root = nullptr;
 }
 
