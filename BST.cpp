@@ -135,4 +135,34 @@ void BST::loadFromFile(const string& filename) {
     inFile.close();
 }
 
+void BST::saveRecursive(Node* node, ofstream& outFile) {
+    if (node == nullptr) {
+        return;
+    }
+
+    outFile.write(reinterpret_cast<const char*>(&node->data), sizeof(int));
+    
+
+    saveRecursive(node->left, outFile);
+    saveRecursive(node->right, outFile);
+}
+
+void BST::saveToFile(const string& filename) {
+    ofstream outFile(filename, ios::binary); 
+    if (!outFile.is_open()) {
+        cout << "Blad: Nie mozna otworzyc pliku " << filename << " do zapisu.\n";
+        return;
+    }
+
+    if (isEmpty()) {
+        cout << "Drzewo jest puste. Zapisano pusty plik.\n";
+        outFile.close();
+        return;
+    }
+
+    saveRecursive(root, outFile);
+    outFile.close();
+    cout << "Drzewo zostalo zapisane binarnie do pliku " << filename << ".\n";
+}
+
 #endif
