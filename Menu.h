@@ -12,6 +12,11 @@ private:
     BST tree;
 
     void handleDodaj();
+    void handleUsun();
+    void handleWyswietl();
+    void handleUsunWszystko();
+    void handleZapiszDoPliku();
+    void handleWczytajZPliku();
 public:
     Menu();
     ~Menu();
