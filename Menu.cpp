@@ -108,7 +108,10 @@ void Menu::handleWyswietl() {
         }
     }
 }
-void Menu::handleUsunWszystko() {}
+void Menu::handleUsunWszystko() {
+    tree.clear();
+    cout << "Drzewo zostalo wyczyszczone\n";
+}
 void Menu::handleZapiszDoPliku() {}
 void Menu::handleWczytajZPliku() {}
 
