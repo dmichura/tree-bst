@@ -21,6 +21,15 @@ public:
     ~BST();
 
     void clear();
+    bool isEmpty();
+
+    void add(int value); 
+    void remove(int value); 
+
+    void displayInorder();
+    void displayPreorder();
+    void displayPostorder();
+    void displayGraphical();
 };
 
 #endif
