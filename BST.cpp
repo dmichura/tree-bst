@@ -83,4 +83,29 @@ Node* BST::findMin(Node* node) {
     return node;
 }
 
+void BST::add(int value) {
+    root = addRecursive(root, value);
+}
+
+
+Node* BST::addRecursive(Node* node, int value) {
+
+    if (node == nullptr) {
+        return new Node(value);
+    }
+
+
+    if (value < node->data) {
+        node->left = addRecursive(node->left, value);
+    } else if (value > node->data) {
+        node->right = addRecursive(node->right, value);
+    }
+
+    else {
+        std::cout << "Element " << value << " juz istnieje. Pomijam.\n";
+    }
+
+    return node;
+}
+
 #endif
