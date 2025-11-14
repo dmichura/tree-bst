@@ -18,6 +18,16 @@ void clearScreen() {
     #endif
 }
 
+void pause() {
+    cout << "\nNacisnij Enter, aby kontynuowac...";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    if (cin.rdbuf()->in_avail() != 0) {
+        cin.get();
+    } else {
+        cin.get();
+    }
+}
+
 Menu::Menu() {
     cout << "Drzewo BST\n";
     // klasa bst
