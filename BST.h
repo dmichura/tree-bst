@@ -16,6 +16,8 @@ struct Node {
 class BST {
 private:
     Node* root;
+    Node* removeRecursive(Node* node, int value);
+    Node* findMin(Node* node);
 
     void clearRecursive(Node* node);
 public:
