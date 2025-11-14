@@ -186,4 +186,11 @@ void BST::displayPreorder() {
     cout << "\n";
 }
 
+void BST::preorderRecursive(Node* node) {
+    if (node == nullptr) return;
+    cout << node->data << " ";
+    preorderRecursive(node->left);
+    preorderRecursive(node->right);
+}
+
 #endif
