@@ -110,4 +110,29 @@ Node* BST::addRecursive(Node* node, int value) {
     return node;
 }
 
+void BST::loadFromFile(const string& filename) {
+
+    ifstream inFile(filename, ios::binary);
+    if (!inFile.is_open()) {
+        cout << "Blad: Nie mozna otworzyc pliku " << filename << " do odczytu\n";
+        return;
+    }
+
+
+    clear(); 
+    int value;
+    
+    while (inFile.read(reinterpret_cast<char*>(&value), sizeof(int))) {
+        add(value);
+    }
+
+    if (inFile.eof()) {
+        cout << "Pomyslnie wczytano drzewo z pliku " << filename << "\n";
+    } else if (inFile.fail()) {
+        cout << "Blad podczas odczytu danych z pliku (niepoprawny format?)\n";
+    }
+    
+    inFile.close();
+}
+
 #endif
