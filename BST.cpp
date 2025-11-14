@@ -179,4 +179,11 @@ void BST::inorderRecursive(Node* node) {
     inorderRecursive(node->right);
 }
 
+void BST::displayPreorder() {
+    cout << "Pre-order (KLP): ";
+    if (isEmpty()) cout << "[PUSTE]";
+    preorderRecursive(root);
+    cout << "\n";
+}
+
 #endif
