@@ -4,6 +4,8 @@
 #include "BST.h"
 #include <iostream>
 
+using namespace std;
+
 BST::BST() : root(nullptr) {}
 
 BST::~BST() {
@@ -25,7 +27,7 @@ void BST::clear() {
 
 void BST::remove(int value) {
     if (root == nullptr) {
-        std::cout << "Drzewo jest puste. Nie mozna usunac.\n";
+        cout << "Drzewo jest puste. Nie mozna usunac\n";
         return;
     }
     root = removeRecursive(root, value);
@@ -35,7 +37,7 @@ void BST::remove(int value) {
 Node* BST::removeRecursive(Node* node, int value) {
 
     if (node == nullptr) {
-        std::cout << "Element " << value << " nie istnieje w drzewie.\n";
+        cout << "Element " << value << " nie istnieje w drzewie\n";
         return nullptr;
     }
 
@@ -50,7 +52,7 @@ Node* BST::removeRecursive(Node* node, int value) {
 
         if (node->left == nullptr && node->right == nullptr) {
             delete node;
-            std::cout << "Usunieto lisc " << value << ".\n";
+            cout << "Usunieto lisc " << value << ".\n";
             return nullptr;
         }
         
@@ -59,18 +61,18 @@ Node* BST::removeRecursive(Node* node, int value) {
         else if (node->left == nullptr) {
             Node* temp = node->right;
             delete node;
-            std::cout << "Usunieto " << value << " (mial jedno dziecko).\n";
+            cout << "Usunieto " << value << " (mial jedno dziecko).\n";
             return temp;
         } else if (node->right == nullptr) {
             Node* temp = node->left;
             delete node;
-            std::cout << "Usunieto " << value << " (mial jedno dziecko).\n";
+            cout << "Usunieto " << value << " (mial jedno dziecko).\n";
             return temp;
         }
 
         Node* successor = findMin(node->right);
         node->data = successor->data;
-        std::cout << "Usunieto " << value << " (mial dwoje dzieci, zastapiono przez " << successor->data << ").\n";
+        cout << "Usunieto " << value << " (mial dwoje dzieci, zastapiono przez " << successor->data << ").\n";
         node->right = removeRecursive(node->right, successor->data);
     }
     return node;
@@ -99,10 +101,6 @@ Node* BST::addRecursive(Node* node, int value) {
         node->left = addRecursive(node->left, value);
     } else if (value > node->data) {
         node->right = addRecursive(node->right, value);
-    }
-
-    else {
-        std::cout << "Element " << value << " juz istnieje. Pomijam.\n";
     }
 
     return node;
