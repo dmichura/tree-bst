@@ -218,4 +218,22 @@ void BST::displayGraphical() {
     cout << "------------------------------------------------------\n";
 }
 
+void BST::displayGraphicalRecursive(Node* node, const string& prefix, bool isLeft, bool isRoot) {
+    if (node == nullptr) {
+        return;
+    }
+
+    displayGraphicalRecursive(node->right, prefix + (isLeft ? "|   " : "    "), false, false);
+
+    cout << prefix;
+    if (isRoot) {
+        cout << "K-- ";
+    } else {
+        cout << (isLeft ? "L-- " : "R-- ");
+    }
+    cout << node->data << "\n";
+
+    displayGraphicalRecursive(node->left, prefix + (isLeft ? "    " : "|   "), true, false);
+}
+
 #endif
