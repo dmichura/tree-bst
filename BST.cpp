@@ -193,4 +193,11 @@ void BST::preorderRecursive(Node* node) {
     preorderRecursive(node->right);
 }
 
+void BST::displayPostorder() {
+    cout << "Post-order (LPK):";
+    if (isEmpty()) cout << "[PUSTE]";
+    postorderRecursive(root);
+    cout << "\n";
+}
+
 #endif
