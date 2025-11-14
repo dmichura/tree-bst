@@ -200,4 +200,11 @@ void BST::displayPostorder() {
     cout << "\n";
 }
 
+void BST::postorderRecursive(Node* node) {
+    if (node == nullptr) return;
+    postorderRecursive(node->left);
+    postorderRecursive(node->right);
+    cout << node->data << " ";
+}
+
 #endif
