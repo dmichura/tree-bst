@@ -4,6 +4,8 @@
 #include <string>
 #include <fstream>
 
+using namespace std;
+
 struct Node {
     int data;
     Node* left;
@@ -30,6 +32,9 @@ public:
     void displayPreorder();
     void displayPostorder();
     void displayGraphical();
+
+    void saveToFile(const string& filename);
+    void loadFromFile(const string& filename);
 };
 
 #endif
