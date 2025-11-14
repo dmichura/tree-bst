@@ -25,6 +25,10 @@ void BST::clear() {
     root = nullptr;
 }
 
+bool BST::isEmpty() {
+    return root == nullptr;
+}
+
 void BST::remove(int value) {
     if (root == nullptr) {
         cout << "Drzewo jest puste. Nie mozna usunac\n";
