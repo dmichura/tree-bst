@@ -22,11 +22,11 @@ Menu::Menu() {
     cout << "Drzewo BST\n";
     // klasa bst
     this->list.push_back( {"Dodaj element",     [this]() { this->handleDodaj(); }} );
-    this->list.push_back( {"Usun element",      [this]() { this->handleDodaj(); }} );
-    this->list.push_back( {"Wyswietl drzewo",   [this]() { this->handleDodaj(); }} );
-    this->list.push_back( {"Usun cale drzewo",  [this]() { this->handleDodaj(); }} );
-    this->list.push_back( {"Zapisz drzewo do pliku", [this]() { this->handleDodaj(); }} );
-    this->list.push_back( {"Wczytaj drzewo z pliku", [this]() { this->handleDodaj(); }} );
+    this->list.push_back( {"Usun element",      [this]() { this->handleUsun(); }} );
+    this->list.push_back( {"Wyswietl drzewo",   [this]() { this->handleWyswietl(); }} );
+    this->list.push_back( {"Usun cale drzewo",  [this]() { this->handleUsunWszystko(); }} );
+    this->list.push_back( {"Zapisz drzewo do pliku", [this]() { this->handleZapiszDoPliku(); }} );
+    this->list.push_back( {"Wczytaj drzewo z pliku", [this]() { this->handleWczytajZPliku(); }} );
 }
 
 Menu::~Menu() {}
@@ -38,6 +38,12 @@ void Menu::handleDodaj() {
     //! TODO: add data to tree
     cout << "Dodano " << wartosc << "\n";
 }
+
+void Menu::handleUsun() {}
+void Menu::handleWyswietl() {}
+void Menu::handleUsunWszystko() {}
+void Menu::handleZapiszDoPliku() {}
+void Menu::handleWczytajZPliku() {}
 
 void Menu::run() {
     int choose = -1;
