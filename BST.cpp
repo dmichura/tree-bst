@@ -172,4 +172,11 @@ void BST::displayInorder() {
     cout << "\n";
 }
 
+void BST::inorderRecursive(Node* node) {
+    if (node == nullptr) return;
+    inorderRecursive(node->left);
+    cout << node->data << " ";
+    inorderRecursive(node->right);
+}
+
 #endif
