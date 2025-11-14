@@ -118,7 +118,12 @@ void Menu::handleZapiszDoPliku() {
     cin >> filename;
     tree.saveToFile(filename);
 }
-void Menu::handleWczytajZPliku() {}
+void Menu::handleWczytajZPliku() {
+    string filename;
+    cout << "Podaj nazwe pliku do wczytania (np. plik.bin): ";
+    cin >> filename;
+    tree.loadFromFile(filename);
+}
 
 void Menu::run() {
     int choose = -1;
