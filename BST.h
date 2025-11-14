@@ -20,6 +20,7 @@ private:
     Node* findMin(Node* node);
     Node* addRecursive(Node* node, int value);
     
+    void saveRecursive(Node* node, ofstream& outFile);
     void clearRecursive(Node* node);
 public:
     BST();
@@ -38,6 +39,7 @@ public:
 
     void saveToFile(const string& filename);
     void loadFromFile(const string& filename);
+
 };
 
 #endif
