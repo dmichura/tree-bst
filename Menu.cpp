@@ -112,7 +112,12 @@ void Menu::handleUsunWszystko() {
     tree.clear();
     cout << "Drzewo zostalo wyczyszczone\n";
 }
-void Menu::handleZapiszDoPliku() {}
+void Menu::handleZapiszDoPliku() {
+    string filename;
+    cout << "Podaj nazwe pliku do zapisu (np. plik.bin): ";
+    cin >> filename;
+    tree.saveToFile(filename);
+}
 void Menu::handleWczytajZPliku() {}
 
 void Menu::run() {
