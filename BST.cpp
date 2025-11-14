@@ -165,4 +165,11 @@ void BST::saveToFile(const string& filename) {
     cout << "Drzewo zostalo zapisane binarnie do pliku " << filename << ".\n";
 }
 
+void BST::displayInorder() {
+    cout << "In-order (LKP):  ";
+    if (isEmpty()) cout << "[PUSTE]";
+    inorderRecursive(root);
+    cout << "\n";
+}
+
 #endif
