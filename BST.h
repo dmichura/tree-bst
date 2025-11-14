@@ -22,6 +22,11 @@ private:
     
     void saveRecursive(Node* node, ofstream& outFile);
     void clearRecursive(Node* node);
+
+    void inorderRecursive(Node* node);
+    void preorderRecursive(Node* node);
+    void postorderRecursive(Node* node);
+    void displayGraphicalRecursive(Node* node, const string& prefix, bool isLeft, bool isRoot);
 public:
     BST();
     ~BST();
