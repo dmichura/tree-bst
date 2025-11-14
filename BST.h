@@ -18,7 +18,8 @@ private:
     Node* root;
     Node* removeRecursive(Node* node, int value);
     Node* findMin(Node* node);
-
+    Node* addRecursive(Node* node, int value);
+    
     void clearRecursive(Node* node);
 public:
     BST();
