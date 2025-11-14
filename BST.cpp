@@ -150,19 +150,19 @@ void BST::saveRecursive(Node* node, ofstream& outFile) {
 void BST::saveToFile(const string& filename) {
     ofstream outFile(filename, ios::binary); 
     if (!outFile.is_open()) {
-        cout << "Blad: Nie mozna otworzyc pliku " << filename << " do zapisu.\n";
+        cout << "Blad: Nie mozna otworzyc pliku " << filename << " do zapisu\n";
         return;
     }
 
     if (isEmpty()) {
-        cout << "Drzewo jest puste. Zapisano pusty plik.\n";
+        cout << "Drzewo jest puste. Zapisano pusty plik\n";
         outFile.close();
         return;
     }
 
     saveRecursive(root, outFile);
     outFile.close();
-    cout << "Drzewo zostalo zapisane binarnie do pliku " << filename << ".\n";
+    cout << "Drzewo zostalo zapisane binarnie do pliku " << filename << "\n";
 }
 
 void BST::displayInorder() {
@@ -205,6 +205,17 @@ void BST::postorderRecursive(Node* node) {
     postorderRecursive(node->left);
     postorderRecursive(node->right);
     cout << node->data << " ";
+}
+
+void BST::displayGraphical() {
+    cout << "Graficzna reprezentacja drzewa:\n";
+    cout << "------------------------------------------------------\n";
+    if (isEmpty()) {
+        cout << "[DRZEWO PUSTE]\n";
+    } else {
+        displayGraphicalRecursive(root, "", false, true);
+    }
+    cout << "------------------------------------------------------\n";
 }
 
 #endif
