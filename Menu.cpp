@@ -1,6 +1,10 @@
+#ifndef MENU_CPP
+#define MENU_CPP
+
 #include "Menu.h"
 #include <iostream>
 #include <cstdlib>
+#include <limits>
 using namespace std;
 
 
@@ -14,46 +18,65 @@ void clearScreen() {
     #endif
 }
 
-void o1()
-{
-    cout << "opcja1\n";
-}
-
 Menu::Menu() {
     cout << "Drzewo BST\n";
     // klasa bst
-    this->list.push_back( {"dodaj element", o1} );
-    this->list.push_back( {"usun element", o1} );
-    this->list.push_back( {"usun drzewo", o1} );
-    this->list.push_back( {"szukaj drogi", o1} );
-    this->list.push_back( {"wyswietl drzewo", o1} );
-    this->list.push_back( {"zapisz drzewo", o1} );
-    this->list.push_back( {"wyjdz z programu", o1} );
+    this->list.push_back( {"Dodaj element",     [this]() { this->handleDodaj(); }} );
+    this->list.push_back( {"Usun element",      [this]() { this->handleDodaj(); }} );
+    this->list.push_back( {"Wyswietl drzewo",   [this]() { this->handleDodaj(); }} );
+    this->list.push_back( {"Usun cale drzewo",  [this]() { this->handleDodaj(); }} );
+    this->list.push_back( {"Zapisz drzewo do pliku", [this]() { this->handleDodaj(); }} );
+    this->list.push_back( {"Wczytaj drzewo z pliku", [this]() { this->handleDodaj(); }} );
 }
 
 Menu::~Menu() {}
 
+void Menu::handleDodaj() {
+    int wartosc;
+    cout << "Podaj wartosc do dodania: ";
+    cin >> wartosc;
+    //! TODO: add data to tree
+    cout << "Dodano " << wartosc << "\n";
+}
+
 void Menu::run() {
+    int choose = -1;
+
     while (true)
     {
         clearScreen();
         cout << "\n==========================\n";
+        cout << "         MENU               \n";
+        cout << "==========================\n";
         for (size_t i = 0; i < this->list.size(); i++)
         {
-            cout << i+1 << ". " << this->list[i].first << "\n";
+            cout << "  " << i+1 << ". " << this->list[i].first << "\n";
         }
+        cout << "  0. Zamknij program\n";
         cout << "==========================\n";
-
-        int choose;
         cout << "  >> ";
+        
         cin >> choose;
-        cout << "\nWybrales: " << choose << "";
+
+        if (cin.fail()) {
+            cout << "\nBlad! Wpisz poprawna liczbe\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+
+        if (choose == 0) {
+            break;
+        }
 
         if (choose < 1 || choose > (int) this->list.size())
         {
             cout << "Wybierz poprawną opcję!\n";
             continue;
         }
+
     }
 
 }
+
+#endif
