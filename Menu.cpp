@@ -46,11 +46,63 @@ void Menu::handleDodaj() {
     cout << "Podaj wartosc do dodania: ";
     cin >> wartosc;
     //! TODO: add data to tree
+    tree.add(wartosc);
     cout << "Dodano " << wartosc << "\n";
 }
 
 void Menu::handleUsun() {}
-void Menu::handleWyswietl() {}
+void Menu::handleWyswietl() {
+    int metoda = -1;
+    while(metoda != 0) {
+        clearScreen();
+        cout << "==========================\n";
+        cout << "  Wybierz metode wyswietlania\n";
+        cout << "==========================\n";
+        cout << "  1. Wyswietl Graficznie (Struktura)\n";
+        cout << "  2. Pre-order  (KLP - lista)\n";
+        cout << "  3. In-order   (LKP - lista posortowana)\n";
+        cout << "  4. Post-order (LPK - lista)\n";
+        cout << "  0. Powrot do menu glownego\n";
+        cout << "==========================\n";
+        cout << "  >> ";
+
+        cin >> metoda;
+
+        if (cin.fail()) {
+            cout << "\nBlad! Wpisz poprawna liczbe\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            pause();
+            continue;
+        }
+
+        cout << "\n";
+        switch(metoda) {
+            case 1:
+                tree.displayGraphical();
+                pause();
+                break;
+            case 2:
+                tree.displayPreorder();
+                pause();
+                break;
+            case 3:
+                tree.displayInorder();
+                pause();
+                break;
+            case 4:
+                tree.displayPostorder();
+                pause();
+                break;
+            case 0:
+                break;
+            default:
+                cout << "Niepoprawna opcja, sprobuj ponownie\n";
+                pause();
+                break;
+        }
+    }
+}
 void Menu::handleUsunWszystko() {}
 void Menu::handleZapiszDoPliku() {}
 void Menu::handleWczytajZPliku() {}
@@ -91,6 +143,8 @@ void Menu::run() {
             continue;
         }
 
+        this->list[choose-1].second();
+        if(this->list[choose-1].first != "Wyswietl drzewo") pause();
     }
 
 }
