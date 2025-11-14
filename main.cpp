@@ -1,8 +1,9 @@
+#include "Menu.h"
 #include <iostream>
-
 using namespace std;
 
-int main()
-{
-    cout << "Hello world\n";
+int main() {
+    Menu menu;
+    menu.run();
+    return 0;
 }
