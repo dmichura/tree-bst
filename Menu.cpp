@@ -10,7 +10,7 @@ using namespace std;
 
 /**
  * @brief Funkcja pomocnicza do czyszczenia ekranu konsoli.
- * * Używa "cls" dla systemów Windows i "clear" dla systemów uniksowych (Linux/macOS).
+ * * Uzywa "cls" dla systemow Windows i "clear" dla systemow uniksowych (Linux/macOS).
  * @see https://medium.com/@ryan_forrester_/c-screen-clearing-how-to-guide-cff5bf764ccd
  */
 void clearScreen() {
@@ -22,15 +22,15 @@ void clearScreen() {
 }
 
 /**
- * @brief Wstrzymuje wykonanie programu do momentu naciśnięcia klawisza Enter.
- * * Czyści bufor wejściowy, aby zapewnić, że oczekuje na świeże naciśnięcie klawisza Enter.
+ * @brief Wstrzymuje wykonanie programu do momentu nacisniecia klawisza Enter.
+ * * Czyści bufor wejsciowy, aby zapewnic, ze oczekuje na swieze nacisniecie klawisza Enter.
  */
 void pause() {
     cout << "\nNacisnij Enter, aby kontynuowac...";
-    // Czyści bufor wejściowy przed oczekiwaniem na Enter
+    // Czyści bufor wejsciowy przed oczekiwaniem na Enter
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     if (cin.rdbuf()->in_avail() != 0) {
-        // Dodatkowe cin.get() na wypadek, gdyby Enter został już wciśnięty
+        // Dodatkowe cin.get() na wypadek, gdyby Enter zostal juz wcisniety
         cin.get();
     } else {
         cin.get();
@@ -39,11 +39,11 @@ void pause() {
 
 /**
  * @brief Konstruktor klasy Menu.
- * * Inicjuje menu główne, dodając opcje związane z operacjami na Drzewie BST.
+ * * Inicjuje menu glowne, dodajac opcje zwiazane z operacjami na Drzewie BST.
  */
 Menu::Menu() {
     cout << "Drzewo BST\n";
-    // Używa this->list.push_back dla czytelności i uniknięcia błędów
+    // Uzywa this->list.push_back dla czytelnosci i unikniecia bledow
     this->list.push_back( {"Dodaj element",     [this]() { this->handleDodaj(); }} );
     this->list.push_back( {"Usun element",      [this]() { this->handleUsun(); }} );
     this->list.push_back( {"Wyswietl drzewo",   [this]() { this->handleWyswietl(); }} );
@@ -54,13 +54,13 @@ Menu::Menu() {
 
 /**
  * @brief Destruktor klasy Menu.
- * * Obecnie pusty, ale może być użyty do zwolnienia zasobów w przyszłości.
+ * * Obecnie pusty, ale moze byc uzyty do zwolnienia zasobow w przyszlosci.
  */
 Menu::~Menu() {}
 
 /**
- * @brief Obsługuje opcję dodawania elementu do drzewa BST.
- * * Prosi użytkownika o podanie wartości i dodaje ją do wewnętrznego obiektu `tree`.
+ * @brief Obsluguje opcje dodawania elementu do drzewa BST.
+ * * Prosi uzytkownika o podanie wartosci i dodaje ja do wewnetrznego obiektu `tree`.
  */
 void Menu::handleDodaj() {
     int wartosc;
@@ -72,8 +72,8 @@ void Menu::handleDodaj() {
 }
 
 /**
- * @brief Obsługuje opcję usuwania elementu z drzewa BST.
- * * Prosi użytkownika o podanie wartości i usuwa ją z wewnętrznego obiektu `tree`.
+ * @brief Obsluguje opcje usuwania elementu z drzewa BST.
+ * * Prosi uzytkownika o podanie wartosci i usuwa ja z wewnetrznego obiektu `tree`.
  */
 void Menu::handleUsun() {
     int wartosc;
@@ -83,8 +83,8 @@ void Menu::handleUsun() {
 }
 
 /**
- * @brief Obsługuje opcję wyświetlania drzewa BST.
- * * Wyświetla podmenu, pozwalając użytkownikowi wybrać jedną z czterech metod wyświetlania:
+ * @brief Obsluguje opcje wyswietlania drzewa BST.
+ * * Wyswietla podmenu, pozwalajac uzytkownikowi wybrac jedna z czterech metod wyswietlania:
  * graficzne, pre-order, in-order lub post-order.
  */
 void Menu::handleWyswietl() {
@@ -141,8 +141,8 @@ void Menu::handleWyswietl() {
 }
 
 /**
- * @brief Obsługuje opcję usuwania całego drzewa BST.
- * * Wywołuje metodę `clear()` na wewnętrznym obiekcie `tree`.
+ * @brief Obsluguje opcje usuwania calego drzewa BST.
+ * * Wywoluje metode `clear()` na wewnetrznym obiekcie `tree`.
  */
 void Menu::handleUsunWszystko() {
     tree.clear();
@@ -150,8 +150,8 @@ void Menu::handleUsunWszystko() {
 }
 
 /**
- * @brief Obsługuje opcję zapisywania drzewa BST do pliku.
- * * Prosi użytkownika o podanie nazwy pliku i wywołuje `saveToFile()` na obiekcie `tree`.
+ * @brief Obsluguje opcje zapisywania drzewa BST do pliku.
+ * * Prosi uzytkownika o podanie nazwy pliku i wywoluje `saveToFile()` na obiekcie `tree`.
  */
 void Menu::handleZapiszDoPliku() {
     string filename;
@@ -161,8 +161,8 @@ void Menu::handleZapiszDoPliku() {
 }
 
 /**
- * @brief Obsługuje opcję wczytywania drzewa BST z pliku.
- * * Prosi użytkownika o podanie nazwy pliku i wywołuje `loadFromFile()` na obiekcie `tree`.
+ * @brief Obsluguje opcje wczytywania drzewa BST z pliku.
+ * * Prosi uzytkownika o podanie nazwy pliku i wywoluje `loadFromFile()` na obiekcie `tree`.
  */
 void Menu::handleWczytajZPliku() {
     string filename;
@@ -172,9 +172,9 @@ void Menu::handleWczytajZPliku() {
 }
 
 /**
- * @brief Główna pętla programu.
- * * Wyświetla menu główne, obsługuje wybór użytkownika i wywołuje odpowiednie funkcje obsługi.
- * Kontynuuje działanie, dopóki użytkownik nie wybierze opcji zamknięcia programu (0).
+ * @brief Glowna petla programu.
+ * * Wyswietla menu glowne, obsluguje wybor uzytkownika i wywoluje odpowiednie funkcje obslugi.
+ * Kontynuuje dzialanie, dopoki uzytkownik nie wybierze opcji zamkniecia programu (0).
  */
 void Menu::run() {
     int choose = -1;
@@ -208,13 +208,13 @@ void Menu::run() {
 
         if (choose < 1 || choose > (int) this->list.size())
         {
-            cout << "Wybierz poprawną opcję!\n";
+            cout << "Wybierz poprawna opcje!\n";
             continue;
         }
 
-        // Wywołanie odpowiedniej funkcji obsługi
+        // Wywolanie odpowiedniej funkcji obslugi
         this->list[choose-1].second();
-        // Pominięcie pauzy po wyświetleniu drzewa, ponieważ ta funkcja ma własną logikę pauzy
+        // Pominięcie pauzy po wyswietleniu drzewa, poniewaz ta funkcja ma wlasna logike pauzy
         if(this->list[choose-1].first != "Wyswietl drzewo") pause();
     }
 
